@@ -9,6 +9,6 @@
 
  #### Использумые css
  
-* [Bootstrap](https://getbootstrap.com/) лучший выбор кто не хочет знать об css больше чем знал вчера, но делать
+* [Bootstrap](https://getbootstrap.com/) лучший выбор для тех, кто не хочет знать об css больше чем знал вчера, но делать
   красивые сайтики, и надувать в гордости щечки. Взят из кишочков https://www.webjars.org/listfiles/org.webjars.npm/bootstrap/4.3.1
   

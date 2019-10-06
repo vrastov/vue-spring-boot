@@ -10,7 +10,7 @@
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('vue')) :
-  typeof define === 'function' && define.amd ? define(['vue'], factory) :
+  typeof define === 'function' && define.amd ? define(['Vue'], factory) :
   (global = global || self, global.bootstrapVue = factory(global.Vue));
 }(this, function (Vue) { 'use strict';
 
