@@ -42,38 +42,8 @@ define(["Vue", "vue!Foo", "vue!Bar"],
 <script data-main="app/main" src="scripts/require/2.3.6/require.js"></script>
 ```
 
-На данный момент у него следующее содержимое. 
+На данный момент он слишком разросся, и явно хочет быть разделен на несколько файлов каждый со своей ответственностью.
 
-```js
-(function () {
-    'use strict';
-
-    requirejs.config({"paths": {"Vue": '/scripts/vue/2.6.10/vue'}});
-    requirejs.config({"paths": {"vue": ["/scripts/require-vuejs/1.1.3/require-vuejs"]}});
-
-    define(["Vue", "vue!App"],
-        function (Vue) {
-            new Vue({
-                el: '#app',
-                template: '<App/>'
-            });
-        }
-    );
-
-})();
-```
-Сначала конфигурируется RequireJS, затем с помощью функции `define` все того же RequireJS мы подтягиваем
- модуль Vue передав массив необходимых модулей`["Vue", "vue!App"]` и в функции которая является вторым аргументом
- `define` получив в качестве аргументов запрошенные модуля, создаем приложение Vue. В `template` мы передаем 
- новый тег описанный в App.vue
- 
-В секции Body index.html указан элемент `div` со значением атрибута `id` как в аргументе `el` 
- передаваемый в конструктор Vue
- ```html
-<body>
-<div id="app"></div>
-</body>
-```
 ####  App.vue
 Основной компонент нашего одностраничного приложения.
  

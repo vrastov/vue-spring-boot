@@ -7,7 +7,8 @@
 
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
-                    <b-nav-item href="#">Ссылка</b-nav-item>
+                    <b-nav-item to="/foo">Ссылка foo</b-nav-item>
+                    <b-nav-item to="/bar">Ссылка bar</b-nav-item>
                 </b-navbar-nav>
 
                 <b-navbar-nav class="ml-auto">
@@ -16,7 +17,7 @@
             </b-collapse>
         </b-navbar>
         <b-breadcrumb :items="breadcrumb"></b-breadcrumb>
-        <div>{{text}}</div>
+        <router-view></router-view>
     </div>
 </template>
 <script>
@@ -26,12 +27,10 @@
                 template: template,
                 data: function () {
                     return {
-                        text: "Hello Vue component!",
                         breadcrumb: [{text: "Главная"}]
                     }
                 },
                 mounted() {
-                    console.log("Oops");
                     this.$bvToast.toast(`Toast body content`, {
                         title: `Load OK`,
                         toaster: 'b-toaster-top-right',
