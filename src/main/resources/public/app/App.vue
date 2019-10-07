@@ -23,11 +23,16 @@
 <script>
     define(["Vue"],
         function (Vue) {
+            const rootBreadcrumb = {
+                text: "Главная",
+                href: "/#/"
+            };
+
             return Vue.component("App", {
                 template: template,
                 data() {
                     return {
-                        breadcrumb: [{text: "Главная"}]
+                        breadcrumb: [rootBreadcrumb]
                     }
                 },
                 mounted() {
@@ -37,6 +42,21 @@
                         solid: true,
                         appendToast: false
                     });
+                },
+                watch: {
+                    '$route'() {
+                        const breadcrumb = [rootBreadcrumb];
+                        for (let i = 0; i < this.$route.matched.length; i++) {
+                            let matched = this.$route.matched[i];
+                            if (typeof matched.meta.breadcrumb != 'undefined') {
+                                breadcrumb.push({
+                                    text: matched.meta.breadcrumb,
+                                    href: "/#" + matched.path
+                                });
+                            }
+                            this.breadcrumb = breadcrumb;
+                        }
+                    }
                 }
             });
         }
