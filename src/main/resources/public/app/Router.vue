@@ -17,6 +17,7 @@
                 path: '/foo',
                 component: asyncComp("vue!Foo"),
                 meta: {
+                    menuItem: "Фуууууу",
                     breadcrumb: "Фуу"
                 },
                 children: [
@@ -41,13 +42,16 @@
                     },
                     {
                         path: 'child2',
-                        component: asyncComp("vue!foo/Child2")
+                        component: asyncComp("vue!foo/Child2"),
                     }
                 ]
             },
             {
                 path: '/bar',
-                component: asyncComp("vue!Bar")
+                component: asyncComp("vue!Bar"),
+                meta: {
+                    menuItem: "Бааааррррр"
+                }
             }
         ];
 

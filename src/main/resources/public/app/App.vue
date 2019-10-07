@@ -7,8 +7,7 @@
 
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
-                    <b-nav-item to="/foo">Ссылка foo</b-nav-item>
-                    <b-nav-item to="/bar">Ссылка bar</b-nav-item>
+                    <b-nav-item v-for="item in menuItems" v-bind:to="item.to" v-bind:key="item.to">{{item.name}}</b-nav-item>
                 </b-navbar-nav>
 
                 <b-navbar-nav class="ml-auto">
@@ -32,6 +31,7 @@
                 template: template,
                 data() {
                     return {
+                        menuItems: [],
                         breadcrumb: [rootBreadcrumb]
                     }
                 },
@@ -42,6 +42,15 @@
                         solid: true,
                         appendToast: false
                     });
+                    let routers = this.$router.options.routes;
+                    for (let i = 0; i < routers.length; i++) {
+                        if (typeof routers[i].meta != 'undefined' && typeof routers[i].meta.menuItem != 'undefined') {
+                            this.menuItems.push({
+                                name: routers[i].meta.menuItem,
+                                to: routers[i].path
+                            });
+                        }
+                    }
                 },
                 watch: {
                     '$route'() {
@@ -51,7 +60,7 @@
                             if (typeof matched.meta.breadcrumb != 'undefined') {
                                 breadcrumb.push({
                                     text: matched.meta.breadcrumb,
-                                    href: "/#" + matched.path
+                                    to: matched.path
                                 });
                             }
                             this.breadcrumb = breadcrumb;
