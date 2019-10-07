@@ -25,7 +25,7 @@
         function (Vue) {
             return Vue.component("App", {
                 template: template,
-                data: function () {
+                data() {
                     return {
                         breadcrumb: [{text: "Главная"}]
                     }
