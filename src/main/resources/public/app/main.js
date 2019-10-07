@@ -17,31 +17,12 @@
     requirejs.config({"paths": {"vue-router": ["/scripts/vue-router/3.1.3/vue-router"]}});
     requirejs.config({"paths": {"bootstrap-vue": ["/scripts/bootstrap-vue/2.0.2/bootstrap-vue"]}});
 
-    define(["Vue", "vue-router", "bootstrap-vue", "vue!Home", "vue!Foo", "vue!Bar", "vue!App"],
-        function (Vue, VueRouter, BootstrapVue, Home, Foo, Bar) {
-            Vue.use(VueRouter);
+    define(["Vue", "bootstrap-vue", "vue!Router", "vue!App"],
+        function (Vue, BootstrapVue, Router) {
             Vue.use(BootstrapVue);
 
-            var routes = [
-                {
-                    path: '/',
-                    component: Home
-                }, {
-                    path: '/foo',
-                    component: Foo
-                },
-                {
-                    path: '/bar',
-                    component: Bar
-                }
-            ];
-
-            var router = new VueRouter({
-                routes: routes
-            });
-
             new Vue({
-                router: router,
+                router: Router,
                 el: '#app',
                 template: '<App/>'
             });
