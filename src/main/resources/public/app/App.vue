@@ -7,7 +7,9 @@
 
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
-                    <b-nav-item v-for="item in menuItems" v-bind:to="item.to" v-bind:key="item.to">{{item.name}}</b-nav-item>
+                    <b-nav-item v-for="item in menuItems" v-bind:to="item.to" v-bind:key="item.to" active-class="active">
+                        {{item.name}}
+                    </b-nav-item>
                 </b-navbar-nav>
 
                 <b-navbar-nav class="ml-auto">

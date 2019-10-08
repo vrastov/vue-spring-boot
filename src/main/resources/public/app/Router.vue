@@ -56,6 +56,15 @@
             {
                 path: '/files',
                 component: asyncComp("vue!Files"),
+                children: [
+                    {
+                        path: ':patch(.*)',
+                        component: asyncComp("vue!Files"),
+                        meta: {
+                            breadcrumb: "файл"
+                        }
+                    }
+                ],
                 meta: {
                     menuItem: "Файлы",
                     breadcrumb: "Файлы"
