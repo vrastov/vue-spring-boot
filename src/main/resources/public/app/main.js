@@ -11,6 +11,7 @@
 
     loadCss("css/bootstrap/4.3.1/bootstrap.css");
     loadCss("scripts/bootstrap-vue/2.0.2/bootstrap-vue.css");
+    loadCss("css/font-awesome/5.11.2/css/all.css");
 
     define(['config'], function () {
         requirejs(['app']);

@@ -30,6 +30,7 @@
 Поскольку я еще тот фронтэндщик, и во многом просто не шарю, я обычно использую Chrome с отключенным
  кешированием.
  
- В  [src/main/resources/public/app](src/main/resources/public/app) и 
- [src/main/resources/public/scripts](src/main/resources/public/scripts) так же есть  README.md с описанием 
- содержимого.
+ В  [src/main/resources/public/app](src/main/resources/public/app), 
+[src/main/resources/public/scripts](src/main/resources/public/scripts) и 
+[src/main/resources/public/css](src/main/resources/public/css)
+так же есть  README.md с описанием содержимого.
