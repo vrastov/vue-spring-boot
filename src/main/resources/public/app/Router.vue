@@ -52,6 +52,14 @@
                 meta: {
                     menuItem: "Бааааррррр"
                 }
+            },
+            {
+                path: '/files',
+                component: asyncComp("vue!Files"),
+                meta: {
+                    menuItem: "Файлы",
+                    breadcrumb: "Файлы"
+                }
             }
         ];
 
