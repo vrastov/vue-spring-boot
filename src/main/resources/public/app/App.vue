@@ -7,7 +7,8 @@
 
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
-                    <b-nav-item v-for="item in menuItems" v-bind:to="item.to" v-bind:key="item.to" active-class="active">
+                    <b-nav-item v-for="item in menuItems" v-bind:to="item.to" v-bind:key="item.to"
+                                active-class="active">
                         {{item.name}}
                     </b-nav-item>
                 </b-navbar-nav>
@@ -26,7 +27,7 @@
         function (Vue) {
             const rootBreadcrumb = {
                 text: "Главная",
-                href: "/#/"
+                 to: "/"
             };
 
             return Vue.component("App", {
@@ -60,10 +61,24 @@
                         for (let i = 0; i < this.$route.matched.length; i++) {
                             let matched = this.$route.matched[i];
                             if (typeof matched.meta.breadcrumb != 'undefined') {
-                                breadcrumb.push({
-                                    text: matched.meta.breadcrumb,
-                                    to: matched.path
-                                });
+                                if (typeof matched.meta.breadcrumb === "function") {
+                                    let result = matched.meta.breadcrumb(this.$route);
+                                    if (Array.isArray(result)) {
+                                        for (let j = 0; j < result.length; j++) {
+                                            breadcrumb.push(result[j]);
+                                        }
+                                    } else {
+                                        breadcrumb.push({
+                                            text: result,
+                                            to: matched.path
+                                        });
+                                    }
+                                } else {
+                                    breadcrumb.push({
+                                        text: matched.meta.breadcrumb,
+                                        to: matched.path
+                                    });
+                                }
                             }
                             this.breadcrumb = breadcrumb;
                         }

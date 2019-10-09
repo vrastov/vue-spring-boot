@@ -34,7 +34,8 @@
                                 meta: {
                                     breadcrumb: "Но наме..."
                                 }
-                            },{
+                            },
+                            {
                                 path: 'noname2',
                                 component: asyncComp("vue!foo/child1/Noname2"),
                             }
@@ -61,7 +62,20 @@
                         path: ':patch(.*)',
                         component: asyncComp("vue!Files"),
                         meta: {
-                            breadcrumb: "файл"
+                            breadcrumb(route) {
+                                let path = '/files';
+                                let split = route.params.patch.split('/');
+                                let result = [];
+                                for (let i = 0; i < split.length; i++) {
+                                    const splitElement = split[i];
+                                    path += '/' + splitElement;
+                                    result.push({
+                                        text: splitElement,
+                                        to: path
+                                    })
+                                }
+                                return result;
+                            }
                         }
                     }
                 ],
