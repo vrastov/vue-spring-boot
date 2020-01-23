@@ -1,5 +1,9 @@
 <template>
-    <div>{{text}}</div>
+    <div class="container">
+        <div class="alert alert-success">
+            {{text}}
+        </div>
+    </div>
 </template>
 <script>
     define(["Vue"],
