@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class DevelopWebMvcConfigurer
         implements WebMvcConfigurer {
 
-    @Value("${dev}")
+    @Value("${dev:false}")
     private Boolean dev;
 
     @Override
