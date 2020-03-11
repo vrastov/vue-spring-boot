@@ -10,12 +10,16 @@
     }
 
     loadCss("/webjars/bootstrap/4.4.1/css/bootstrap.css");
+    loadCss("/webjars/bootstrap-vue/2.1.0/dist/bootstrap-vue.css");
 
-    requirejs.config({"paths": {"Vue": '/webjars/vue/2.6.11/vue'}});
-    requirejs.config({"paths": {"vue": ["/scripts/require-vuejs/1.1.3/require-vuejs"]}});
+    // requirejs.config({"paths": {"Vue": '/webjars/vue/2.6.11/vue'}});
+    requirejs.config({"paths": {"vue": '/webjars/vue/2.6.11/vue'}});
+    requirejs.config({"paths": {"sfc": ["/scripts/require-vuejs/1.1.3/require-vuejs"]}});
+    requirejs.config({"paths": {"bootstrap-vue": ["/webjars/bootstrap-vue/2.1.0/dist/bootstrap-vue"]}});
 
-    define(["Vue", "vue!App"],
-        function (Vue) {
+    define(["vue", "bootstrap-vue", "sfc!App"],
+        function (Vue, BootstrapVue) {
+            Vue.use(BootstrapVue);
             new Vue({
                 el: '#app',
                 template: '<App/>'

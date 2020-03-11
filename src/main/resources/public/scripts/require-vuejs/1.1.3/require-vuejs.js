@@ -206,7 +206,7 @@ var plugin = (function(){
         if(text[0] === "\uFEFF") { // remove BOM ( Byte Mark Order ) from utf8 files 
             text = text.substring(1);
         }
-        var parsed = parse(text).replace(/(define\()\s*(\[.*)/, "$1\"vue!" + name + "\", $2");
+        var parsed = parse(text).replace(/(define\()\s*(\[.*)/, "$1\"sfc!" + name + "\", $2");
         return parsed;
     };
 
@@ -319,9 +319,9 @@ var plugin = (function(){
 
 /* jshint ignore:end */
 
-define("vue", function(){
-    return plugin;
-});
+// define("vue", function(){
+//     return plugin;
+// });
 /* vim: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab : */
 
 })();
